@@ -1,3 +1,31 @@
+$(document).ready(function() {
+  // When the button is clicked
+  $('#video-btn').click(function() {
+    // Show the modal
+    $('#video-modal').fadeIn();
+  });
+
+  // When the close button is clicked
+  $('.close').click(function() {
+    // Hide the modal
+    $('#video-modal').fadeOut();
+    // Pause the video
+    $('iframe').attr('src', $('iframe').attr('src'));
+  });
+
+  // When the user clicks outside of the modal
+  $(window).click(function(e) {
+    if ($(e.target).is('#video-modal')) {
+      // Hide the modal
+      $('#video-modal').fadeOut();
+      // Pause the video
+      $('iframe').attr('src', $('iframe').attr('src'));
+    }
+  });
+});
+
+
+
 function getTimeRemaining(endtime) {
     var t = Date.parse(endtime) - Date.now();
     var seconds = Math.floor((t / 1000) % 60);
